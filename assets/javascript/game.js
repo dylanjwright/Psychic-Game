@@ -49,7 +49,8 @@ document.onkeyup = function(event) {
     }
     else {
         losses++;
-        
+        lossesText.innerHTML = losses;
+        lettersGuessed = [];
         guessesLeft = 9;
     }
 
