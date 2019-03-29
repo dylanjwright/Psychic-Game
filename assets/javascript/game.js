@@ -33,7 +33,7 @@ document.onkeyup = function(event) {
     document.getElementById("letter-guessed").innerHTML = lettersGuessed;
 
     //If's for when a letter is pressed
-    if ((userGuess === computerGuess) && (guessesLeft > 0)){
+    if ((userGuess === computerGuess) && (guessesLeft > 1)){
         wins++;
         winsText.innerHTML = wins;
         guessesLeft = 9;
@@ -43,15 +43,20 @@ document.onkeyup = function(event) {
         computerGuess = alphabet[Math.floor(Math.random() * alphabet.length)];
         console.log(computerGuess);
     }
-    else if ((userGuess !== computerGuess) && (guessesLeft > 0)){
+    else if ((userGuess !== computerGuess) && (guessesLeft > 1)){
         guessesLeft--;
         leftText.innerHTML = guessesLeft;
     }
     else {
+        console.log("finalisrunning")
         losses++;
         lossesText.innerHTML = losses;
         lettersGuessed = [];
+        document.getElementById("letter-guessed").innerHTML = lettersGuessed;
+        computerGuess = alphabet[Math.floor(Math.random() * alphabet.length)];
+        console.log(computerGuess);
         guessesLeft = 9;
+        leftText.innerHTML = 9;
     }
 
     //Updates html after function is called
