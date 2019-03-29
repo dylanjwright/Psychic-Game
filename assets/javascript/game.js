@@ -24,8 +24,17 @@ var sofarText = document.getElementById("sofar-text");
 
 document.onkeyup = function(event) {
 
+
     //Makes the key presses lowercase----?
     var userGuess = event.key.toLowerCase();
+
+    if(alphabet.indexOf(userGuess) === -1){
+        return
+    }
+
+    if(lettersGuessed.indexOf(userGuess) !== -1){
+        return
+    }
 
     lettersGuessed.push(userGuess)
 
